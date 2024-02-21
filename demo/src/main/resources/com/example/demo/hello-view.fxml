@@ -52,9 +52,10 @@
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Tools">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" text="Activate server" />
+                  <MenuItem mnemonicParsing="false" text="Connect to server" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
