@@ -6,45 +6,61 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Box?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Box depth="100" height="350.0" layoutX="300.0" layoutY="202.0" width="600.0" />
-      <GridPane gridLinesVisible="true" layoutX="10.0" layoutY="27.0" prefHeight="350.0" prefWidth="580.0">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
-      <Box depth="100" height="350.0" layoutX="300.0" layoutY="619.0" width="600.0" />
-      <GridPane gridLinesVisible="true" layoutX="10.0" layoutY="444.0" prefHeight="350.0" prefWidth="580.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
+      <Pane layoutY="27.0" prefHeight="350.0" prefWidth="600.0" style="-fx-background-color: #000000;">
+         <children>
+            <GridPane fx:id="rival" gridLinesVisible="true" layoutX="10.0" prefHeight="350.0" prefWidth="580.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Rectangle fx:id="r00" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Rectangle fx:id="r01" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="1" />
+                  <Rectangle fx:id="r02" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="2" />
+                  <Rectangle fx:id="r03" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="3" />
+                  <Rectangle fx:id="r04" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="4" />
+                  <Rectangle fx:id="r10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.rowIndex="1" />
+                  <Rectangle fx:id="r11" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Rectangle fx:id="r12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Rectangle fx:id="r13" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Rectangle fx:id="r14" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <Rectangle fx:id="r20" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.rowIndex="2" />
+                  <Rectangle fx:id="r30" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.rowIndex="3" />
+                  <Rectangle fx:id="r40" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.rowIndex="4" />
+                  <Rectangle fx:id="r21" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Rectangle fx:id="r22" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Rectangle fx:id="r23" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Rectangle fx:id="r24" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                  <Rectangle fx:id="r31" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Rectangle fx:id="r32" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Rectangle fx:id="r33" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Rectangle fx:id="r34" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                  <Rectangle fx:id="r41" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Rectangle fx:id="r42" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Rectangle fx:id="r43" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <Rectangle fx:id="r44" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
       <MenuBar layoutY="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
@@ -65,5 +81,57 @@
           </Menu>
         </menus>
       </MenuBar>
+      <Pane layoutY="444.0" prefHeight="350.0" prefWidth="600.0" style="-fx-background-color: #000000;">
+         <children>
+            <GridPane gridLinesVisible="true" layoutX="10.0" prefHeight="350.0" prefWidth="580.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Rectangle fx:id="j00" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
+                  <Rectangle fx:id="j01" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="1" />
+                  <Rectangle fx:id="j02" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="2" />
+                  <Rectangle fx:id="j03" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="3" />
+                  <Rectangle fx:id="j04" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="4" />
+                  <Rectangle fx:id="j10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.rowIndex="1" />
+                  <Rectangle fx:id="j11" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Rectangle fx:id="j12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Rectangle fx:id="j13" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Rectangle fx:id="j14" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <Rectangle fx:id="j20" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.rowIndex="2" />
+                  <Rectangle fx:id="j21" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Rectangle fx:id="j22" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Rectangle fx:id="j23" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Rectangle fx:id="j24" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                  <Rectangle fx:id="j30" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.rowIndex="3" />
+                  <Rectangle fx:id="j31" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Rectangle fx:id="j32" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Rectangle fx:id="j33" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Rectangle fx:id="j34" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                  <Rectangle fx:id="j40" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.rowIndex="4" />
+                  <Rectangle fx:id="j41" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Rectangle fx:id="j42" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Rectangle fx:id="j43" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <Rectangle fx:id="j44" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" stroke="BLACK" strokeType="INSIDE" width="116.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+      <Text fx:id="text" layoutX="123.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Empieza una partida" textAlignment="CENTER" wrappingWidth="353.7294921875" AnchorPane.bottomAnchor="383.0" AnchorPane.leftAnchor="123.0" AnchorPane.rightAnchor="123.2705078125" AnchorPane.topAnchor="400.93310546875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
