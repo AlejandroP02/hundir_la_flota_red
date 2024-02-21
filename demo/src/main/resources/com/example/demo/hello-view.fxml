@@ -7,11 +7,12 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Box?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1200.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <GridPane gridLinesVisible="true" layoutY="27.0" prefHeight="550.0" prefWidth="600.0">
+      <Box depth="100" height="350.0" layoutX="300.0" layoutY="202.0" width="600.0" />
+      <GridPane gridLinesVisible="true" layoutX="10.0" layoutY="27.0" prefHeight="350.0" prefWidth="580.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -27,7 +28,8 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <GridPane gridLinesVisible="true" layoutY="650.0" prefHeight="550.0" prefWidth="600.0">
+      <Box depth="100" height="350.0" layoutX="300.0" layoutY="619.0" width="600.0" />
+      <GridPane gridLinesVisible="true" layoutX="10.0" layoutY="444.0" prefHeight="350.0" prefWidth="580.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
