@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de0ea3cb-063c-41f4-ad80-10f39b8855bc" name="Changes" comment="control">
+    <list default="true" id="de0ea3cb-063c-41f4-ad80-10f39b8855bc" name="Changes" comment="Comentario para futuro y cambio de package">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/control/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/control/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/net/DatagramSocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/net/DatagramSocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/net/DatagramSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/net/DatagramSocketServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/net/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/net/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/model/Boat.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/model/Boat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/model/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708710893099</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Comentario para futuro y cambio de package">
+      <option name="closed" value="true" />
+      <created>1708712581895</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1708712581895</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -150,6 +157,7 @@
     <MESSAGE value="Diseño finalizado" />
     <MESSAGE value="Re-estructura del proyecto." />
     <MESSAGE value="control" />
-    <option name="LAST_COMMIT_MESSAGE" value="control" />
+    <MESSAGE value="Comentario para futuro y cambio de package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comentario para futuro y cambio de package" />
   </component>
 </project>
