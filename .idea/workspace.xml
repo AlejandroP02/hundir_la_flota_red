@@ -49,7 +49,7 @@
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.demo.controll.*" />
+          <option name="PATTERN" value="com.example.demo.control.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
