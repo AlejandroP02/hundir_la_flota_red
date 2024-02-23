@@ -14,7 +14,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane layoutY="27.0" prefHeight="350.0" prefWidth="600.0" style="-fx-background-color: #000000;">
+      <Pane layoutY="27.0" prefHeight="350.0" prefWidth="600.0" style="-fx-background-color: #000000;" AnchorPane.topAnchor="27.0">
          <children>
             <GridPane fx:id="rival" gridLinesVisible="true" layoutX="10.0" prefHeight="350.0" prefWidth="580.0">
               <columnConstraints>
