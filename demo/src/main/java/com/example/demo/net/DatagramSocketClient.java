@@ -1,4 +1,4 @@
-package uf5.mp3.adivinafx.net;
+package com.example.demo.net;
 
 import java.io.IOException;
 import java.net.*;
@@ -6,6 +6,13 @@ import java.util.Scanner;
 
 
 public abstract class DatagramSocketClient {
+
+    /**
+     * Necesitamos usar la clase AnimationTimer para realizar peticiones
+     * vacias continuas al servidor para poder actualizar el estado
+     * del juego.
+     */
+
     InetAddress serverIP;
     int serverPort;
     DatagramSocket socket;

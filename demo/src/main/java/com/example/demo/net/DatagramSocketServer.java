@@ -1,6 +1,4 @@
-package uf5.mp3.adivinafx.net;
-
-import uf5.mp3.adivinafx.model.SecretNum;
+package com.example.demo.net;
 
 import java.io.IOException;
 import java.net.DatagramPacket;

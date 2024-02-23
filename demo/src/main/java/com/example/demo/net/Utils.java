@@ -1,4 +1,4 @@
-package uf5.mp3.adivinafx.net;
+package com.example.demo.net;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
