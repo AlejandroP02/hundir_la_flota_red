@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de0ea3cb-063c-41f4-ad80-10f39b8855bc" name="Changes" comment="Comentario para futuro y cambio de package">
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/net/DatagramSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/net/DatagramSocketServer.java" afterDir="false" />
+    <list default="true" id="de0ea3cb-063c-41f4-ad80-10f39b8855bc" name="Changes" comment="Comentarios para habilitar pruebas.">
+      <change beforePath="$PROJECT_DIR$/demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/control/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/control/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/model/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708712581895</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Comentarios para habilitar pruebas.">
+      <option name="closed" value="true" />
+      <created>1709143746134</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1709143746134</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -144,6 +154,7 @@
     <MESSAGE value="Re-estructura del proyecto." />
     <MESSAGE value="control" />
     <MESSAGE value="Comentario para futuro y cambio de package" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comentario para futuro y cambio de package" />
+    <MESSAGE value="Comentarios para habilitar pruebas." />
+    <option name="LAST_COMMIT_MESSAGE" value="Comentarios para habilitar pruebas." />
   </component>
 </project>

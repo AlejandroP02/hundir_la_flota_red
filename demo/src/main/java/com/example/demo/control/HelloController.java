@@ -2,9 +2,23 @@ package com.example.demo.control;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.shape.Rectangle;
 
 public class HelloController {
+
+    @FXML
+    private MenuItem cerrar;
+
+    @FXML
+    private MenuItem actServer;
+
+    @FXML
+    private MenuItem connect;
+
+    @FXML
+    private Label turno;
 
     @FXML
     private Rectangle r00,r01,r02,r03,r04,
