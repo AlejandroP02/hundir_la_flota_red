@@ -14,14 +14,14 @@ import java.nio.ByteBuffer;
  */
 public class DatagramSocketServer {
     private DatagramSocket socket;
-    private SecretNum ns;
+    //private SecretNum ns;
     private int fi;
     private boolean acabat;
 
     //Instàciar el socket
     public void init(int port) throws SocketException {
         socket = new DatagramSocket(port);
-        ns = new SecretNum(100);
+        //ns = new SecretNum(100);
         acabat = false;
         fi=-1;
         System.out.printf("Servidor obert pel port %d%n",port);
@@ -49,9 +49,9 @@ public class DatagramSocketServer {
     public byte[] processData(byte[] data, int lenght) {
         String nombre = new String(data,0,lenght);
         System.out.println("rebut->"+nombre);
-        fi = ns.comprova(Integer.parseInt(nombre));
+        //fi = ns.comprova(Integer.parseInt(nombre));
         if(fi==0) acabat=true;
-        byte[] resposta = ns.comprova(nombre).getBytes();
+        byte[] resposta = null; //ns.comprova(nombre).getBytes();
         return resposta;
     }
 
