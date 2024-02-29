@@ -70,8 +70,8 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Tools">
             <items>
-              <MenuItem fx:id="activateServer" mnemonicParsing="false" text="Activate server" />
-                  <MenuItem fx:id="conectServer" mnemonicParsing="false" text="Connect to server" />
+              <MenuItem fx:id="activateServer" mnemonicParsing="false" onAction="#menuItemConnection" text="Activate server" />
+                  <MenuItem fx:id="conectServer" mnemonicParsing="false" onAction="#menuItemActiveServer" text="Connect to server" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
