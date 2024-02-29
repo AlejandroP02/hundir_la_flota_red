@@ -1,8 +1,8 @@
 package com.example.demo.model;
 
 public class Player {
-    String nombre;
-    Boat[] boats = new Boat[3];
+    private String nombre;
+    private Boat[] boats = new Boat[3];
 
     public Player(String nombre, Boat[] boats) {
         this.nombre = nombre;
