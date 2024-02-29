@@ -1,5 +1,6 @@
 package com.example.demo.control;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -49,5 +50,13 @@ public class Controller {
                 {r30, r31, r32, r33, r34},
                 {r40, r41, r42, r43, r44}
         };
+    }
+
+    /**
+     * Cierra la aplicacion.
+     */
+    @FXML
+    private void salir(){
+        Platform.exit();
     }
 }
