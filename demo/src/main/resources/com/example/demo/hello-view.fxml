@@ -65,25 +65,25 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="close" mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Tools">
             <items>
-              <MenuItem mnemonicParsing="false" text="Activate server" />
-                  <MenuItem mnemonicParsing="false" text="Connect to server" />
+              <MenuItem fx:id="activateServer" mnemonicParsing="false" text="Activate server" />
+                  <MenuItem fx:id="conectServer" mnemonicParsing="false" text="Connect to server" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem fx:id="about" mnemonicParsing="false" text="About" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
       <Pane layoutY="444.0" prefHeight="350.0" prefWidth="600.0" style="-fx-background-color: #000000;">
          <children>
-            <GridPane gridLinesVisible="true" layoutX="10.0" prefHeight="350.0" prefWidth="580.0">
+            <GridPane fx:id="jugador" gridLinesVisible="true" layoutX="10.0" prefHeight="350.0" prefWidth="580.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -128,7 +128,7 @@
             </GridPane>
          </children>
       </Pane>
-      <Text fx:id="text" layoutX="123.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Empieza una partida" textAlignment="CENTER" wrappingWidth="353.7294921875" AnchorPane.bottomAnchor="383.0" AnchorPane.leftAnchor="123.0" AnchorPane.rightAnchor="123.2705078125" AnchorPane.topAnchor="400.93310546875">
+      <Text fx:id="textTurno" layoutX="123.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Empieza una partida" textAlignment="CENTER" wrappingWidth="353.7294921875" AnchorPane.bottomAnchor="383.0" AnchorPane.leftAnchor="123.0" AnchorPane.rightAnchor="123.2705078125" AnchorPane.topAnchor="400.93310546875">
          <font>
             <Font size="18.0" />
          </font>
