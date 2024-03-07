@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de0ea3cb-063c-41f4-ad80-10f39b8855bc" name="Changes" comment="getters, setters y algunos metodos.">
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/control/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/com/example/demo/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/com/example/demo/hello-view.fxml" afterDir="false" />
+    <list default="true" id="de0ea3cb-063c-41f4-ad80-10f39b8855bc" name="Changes" comment="Metodos para menu completados mediante inspiración.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/model/Boat.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/model/Boat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +37,17 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/aparrilla/Vídeos/scenebuilder/bin/SceneBuilder&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/wavi/Escritorio/hundir_la_flota_red&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/demo/src/main/resources/com/example/demo" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.demo.HelloApplication" />
@@ -151,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709145133118</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Metodos para menu completados mediante inspiración.">
+      <option name="closed" value="true" />
+      <created>1709232746741</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1709232746741</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -174,6 +187,7 @@
     <MESSAGE value="Comentario para futuro y cambio de package" />
     <MESSAGE value="Comentarios para habilitar pruebas." />
     <MESSAGE value="Clase player terminada." />
-    <option name="LAST_COMMIT_MESSAGE" value="Clase player terminada." />
+    <MESSAGE value="Metodos para menu completados mediante inspiración." />
+    <option name="LAST_COMMIT_MESSAGE" value="Metodos para menu completados mediante inspiración." />
   </component>
 </project>
