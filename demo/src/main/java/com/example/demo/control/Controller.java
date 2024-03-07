@@ -28,6 +28,10 @@ public class Controller {
 
     @FXML
     private Label turno;
+    @FXML
+    private GridPane jugador;
+    @FXML
+    private GridPane rival;
 
     @FXML
     private Rectangle r00, r01, r02, r03, r04,
@@ -100,7 +104,6 @@ public class Controller {
         gridPane.add(txtNom, 1, 2);
 
         dialog.getDialogPane().setContent(gridPane);
-
         Platform.runLater(txtIp::requestFocus);
 /*
         dialog.setResultConverter(dButton -> {
@@ -156,7 +159,48 @@ public class Controller {
             });
             thServer.start();
         }
+    }
 
 
+    @FXML
+    public void colocarBarco(){
+        boolean tres=true;
+        boolean vertical=false;
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                int filaActual = i;
+                int columnaActual = j;
+                Rectangle pieza = tableroj[i][j];
+                pieza.setOnMouseClicked(e -> {
+                    pintar(tres, vertical, filaActual, columnaActual);
+                });
+            }
+        }
+    }
+
+
+    public void pintar(boolean tres, boolean vertical, int x, int y){
+        if(tres && vertical){
+            if(x+2>=5){
+                for (int i = x; i > x-3; i--) {
+                    tableroj[i][y].setStyle("-fx-fill: #515151");
+                }
+            }else{
+                for (int i = x; i > x+3; i++) {
+                    tableroj[i][y].setStyle("-fx-fill: #515151");
+                }
+            }
+        }
+        if(tres && !vertical){
+            if(y+2>=5){
+                for (int i = y; i > y-3; i--) {
+                    tableroj[x][i].setStyle("-fx-fill: #515151");
+                }
+            }else{
+                for (int i = y; i < y+3; i++) {
+                    tableroj[x][i].setStyle("-fx-fill: #515151");
+                }
+            }
+        }
     }
 }
