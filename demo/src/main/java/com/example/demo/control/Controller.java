@@ -1,6 +1,7 @@
 package com.example.demo.control;
 
 import com.example.demo.HelloApplication;
+import com.example.demo.net.DatagramSocketClient;
 import com.example.demo.net.DatagramSocketServer;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -9,10 +10,16 @@ import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import java.io.*;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Pair;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.util.Optional;
 
 public class Controller {
@@ -77,9 +84,47 @@ public class Controller {
         Platform.exit();
     }
 
+    DatagramSocketClient client = new DatagramSocketClient() {
+        String resp="";
+        @Override
+        public void getResponse(byte[] data, int length) {
+            ByteArrayInputStream is = new ByteArrayInputStream(data);
+            try {
+                ObjectInputStream ois = new ObjectInputStream(is);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            // lblResponse.setText(estatJoc.getResponse());
+            StringBuilder stringEstat = new StringBuilder("XD");
+            turno.setText(stringEstat.toString());
+
+        }
+
+        @Override
+        public byte[] getRequest() {
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            ObjectOutputStream oos = null;
+            //jugada = new Jugada();
+
+            try {
+                oos = new ObjectOutputStream(os);
+                oos.writeObject(r00);
+                oos.flush();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return os.toByteArray();
+        }
+
+        @Override
+        public boolean mustContinue(byte[] data) {
+            return !resp.equals("Correcte");
+        }
+    };
+
     @FXML
     public void menuItemConnection(ActionEvent actionEvent) {
-        System.out.println("xd");
 
         Dialog<Pair<String, Integer>> dialog = new Dialog<>();
         dialog.setTitle("Client configuration");
@@ -109,11 +154,9 @@ public class Controller {
 
         dialog.getDialogPane().setContent(gridPane);
         Platform.runLater(txtIp::requestFocus);
-/*
+
         dialog.setResultConverter(dButton -> {
             if(dButton == conButton) {
-                nom = txtNom.getText();
-                jugada.setNom(nom);
                 return new Pair<>(txtIp.getText(),Integer.parseInt(txtPort.getText()));
             }
             return null;
@@ -126,11 +169,10 @@ public class Controller {
                 client.init(result.get().getKey(), result.get().getValue());
                 client.runClient();
                 Thread.sleep(500);
-                circleClient.setFill(Color.BLUE);
-                lblResponse.setText("Connectat, comença!");
-                if(!estatJoc.getTurn().equals(nom)) {
+                turno.setText("Connectat, comença!");
+                /**if(!estatJoc.getTurn().equals(nom)) {
                     timer.start();
-                }
+                }*/
 
             } catch (SocketException | UnknownHostException | InterruptedException e) {
                 e.printStackTrace();
@@ -139,7 +181,6 @@ public class Controller {
             }
 
         }
-*/
     }
     public void menuItemActiveServer(ActionEvent actionEvent) {
         showConfigServer();
