@@ -11,6 +11,9 @@ public class GameState implements Serializable {
     private String response;
     private boolean turno;
 
+    public GameState() {
+    }
+
     public Player getPlayer1() {
         return player1;
     }

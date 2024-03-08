@@ -1,11 +1,12 @@
 package com.example.demo.net;
 
+import com.example.demo.model.GameState;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
-import java.nio.ByteBuffer;
 
 /**
  * Created by jordi on 26/02/17.
@@ -16,12 +17,14 @@ public class DatagramSocketServer {
     private DatagramSocket socket;
     private int fi;
     private boolean acabat;
+    private GameState gameState;
 
     //Instàciar el socket
     public void init(int port) throws SocketException {
         socket = new DatagramSocket(port);
         //ns = new SecretNum(100);
         acabat = false;
+        gameState = new GameState();
         fi=-1;
         System.out.printf("Servidor obert pel port %d%n",port);
     }

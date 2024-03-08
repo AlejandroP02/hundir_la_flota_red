@@ -220,14 +220,14 @@ public class Controller {
 
     @FXML
     public void colocarBarco(){
-        if(barcos>0){
-            for (int i = 0; i < 5; i++) {
-                for (int j = 0; j < 5; j++) {
-                    int filaActual = i;
-                    int columnaActual = j;
-                    Rectangle pieza = tableroj[i][j];
-                    pieza.setOnMouseClicked(e -> pintar(tres, vertical, filaActual, columnaActual));
-                }
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                int filaActual = i;
+                int columnaActual = j;
+                Rectangle pieza = tableroj[i][j];
+                pieza.setOnMouseClicked(e -> {
+                    if(barcos>0)pintar(tres, vertical, filaActual, columnaActual);
+                });
             }
         }
     }

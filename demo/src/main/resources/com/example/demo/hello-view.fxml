@@ -79,7 +79,7 @@
           </Menu>
           <Menu mnemonicParsing="false" onAction="#onOrientacionSelected" text="Help">
             <items>
-              <MenuItem fx:id="about" mnemonicParsing="false" onAction="#colocarBarco" text="About" />
+              <MenuItem fx:id="about" mnemonicParsing="false" text="About" />
             </items>
           </Menu>
         </menus>
