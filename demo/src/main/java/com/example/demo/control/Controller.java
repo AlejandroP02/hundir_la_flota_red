@@ -180,6 +180,7 @@ public class Controller {
 
 
     public void pintar(boolean tres, boolean vertical, int x, int y){
+        //odio mi vida.
         if(tres && vertical){
             if(x+2>=5){
                 for (int i = x; i > x-3; i--) {
