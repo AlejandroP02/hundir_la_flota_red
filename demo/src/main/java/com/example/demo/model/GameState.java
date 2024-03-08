@@ -57,6 +57,7 @@ public class GameState {
         this.turno = turno;
     }
     public boolean nextTurn(Player player){
+        // Metodo a editar para realizar los turnos.
         if (player.getNombre().equals(player1.getNombre())){
             turno=true;
         }else {
