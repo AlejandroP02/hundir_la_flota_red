@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -137,20 +138,21 @@
       </Text>
       <AnchorPane layoutX="600.0" layoutY="25.0" prefHeight="775.0" prefWidth="199.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
          <children>
-            <Text layoutX="37.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Orientación barcos" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="39.98876953125" />
-            <Text layoutX="53.0" layoutY="534.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tamaño Barco" />
-            <RadioButton fx:id="radioV" layoutX="55.0" layoutY="275.0" mnemonicParsing="false" onAction="#onOrientacionSelected" text="Vertical">
+            <Text layoutX="38.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Orientación barcos" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="38.98876953125" />
+            <Text layoutX="52.0" layoutY="566.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tamaño Barco" />
+            <RadioButton fx:id="radioV" layoutX="56.0" layoutY="172.0" mnemonicParsing="false" onAction="#onOrientacionSelected" text="Vertical">
                <toggleGroup>
                   <ToggleGroup fx:id="Orientacion" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="radioH" layoutX="55.0" layoutY="305.0" mnemonicParsing="false" onAction="#onOrientacionSelected" selected="true" text="Horizontal" toggleGroup="$Orientacion" />
-            <RadioButton fx:id="radioL2" layoutX="55.0" layoutY="555.0" mnemonicParsing="false" onAction="#onTamanoSelected" text="2 Largo">
+            <RadioButton fx:id="radioH" layoutX="56.0" layoutY="202.0" mnemonicParsing="false" onAction="#onOrientacionSelected" selected="true" text="Horizontal" toggleGroup="$Orientacion" />
+            <RadioButton fx:id="radioL2" layoutX="54.0" layoutY="587.0" mnemonicParsing="false" onAction="#onTamanoSelected" text="2 Largo">
                <toggleGroup>
                   <ToggleGroup fx:id="tamaño" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="radioL3" layoutX="55.0" layoutY="585.0" mnemonicParsing="false" onAction="#onTamanoSelected" selected="true" text="3 Largo" toggleGroup="$tamaño" />
+            <RadioButton fx:id="radioL3" layoutX="54.0" layoutY="617.0" mnemonicParsing="false" onAction="#onTamanoSelected" selected="true" text="3 Largo" toggleGroup="$tamaño" />
+            <Button layoutX="40.0" layoutY="371.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="123.0" text="Enviar jugada" textAlignment="CENTER" />
          </children>
       </AnchorPane>
    </children>
