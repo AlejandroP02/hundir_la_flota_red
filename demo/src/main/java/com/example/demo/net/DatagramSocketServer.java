@@ -7,6 +7,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
+import java.io.*;
 
 /**
  * Created by jordi on 26/02/17.
@@ -49,15 +50,29 @@ public class DatagramSocketServer {
 
     //El server retorna al client el mateix missatge que li arriba però en majúscules
     public byte[] processData(byte[] data, int lenght) {
-        String nombre = new String(data,0,lenght);
-        System.out.println("rebut->"+nombre);
-        //fi = ns.comprova(Integer.parseInt(nombre));
-        if(fi==0) acabat=true;
-        byte[] resposta = null; //ns.comprova(nombre).getBytes();
-        return resposta;
+        ByteArrayInputStream is = new ByteArrayInputStream(data);
+        try {
+            ObjectInputStream ois = new ObjectInputStream(is);
+            gameState = (GameState) ois.readObject();
+            //System.out.println(jugada + "torn:" + estatJoc.getTurn());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        ObjectOutputStream oos = null;
+        try {
+            oos = new ObjectOutputStream(os);
+            oos.writeObject(gameState);
+            oos.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return os.toByteArray();
     }
-
-
-
 
 }
