@@ -76,7 +76,7 @@
                   <MenuItem fx:id="conectServer" mnemonicParsing="false" onAction="#menuItemActiveServer" text="Connect to server" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" onAction="#onOrientacionSelected" text="Help">
             <items>
               <MenuItem fx:id="about" mnemonicParsing="false" onAction="#colocarBarco" text="About" />
             </items>
@@ -139,18 +139,18 @@
          <children>
             <Text layoutX="37.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Orientación barcos" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="39.98876953125" />
             <Text layoutX="53.0" layoutY="534.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tamaño Barco" />
-            <RadioButton fx:id="radioV" layoutX="55.0" layoutY="275.0" mnemonicParsing="false" text="Vertical">
+            <RadioButton fx:id="radioV" layoutX="55.0" layoutY="275.0" mnemonicParsing="false" onAction="#onOrientacionSelected" text="Vertical">
                <toggleGroup>
                   <ToggleGroup fx:id="Orientacion" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="radioH" layoutX="55.0" layoutY="305.0" mnemonicParsing="false" selected="true" text="Horizontal" toggleGroup="$Orientacion" />
-            <RadioButton fx:id="radioL2" layoutX="55.0" layoutY="555.0" mnemonicParsing="false" text="2 Largo">
+            <RadioButton fx:id="radioH" layoutX="55.0" layoutY="305.0" mnemonicParsing="false" onAction="#onOrientacionSelected" selected="true" text="Horizontal" toggleGroup="$Orientacion" />
+            <RadioButton fx:id="radioL2" layoutX="55.0" layoutY="555.0" mnemonicParsing="false" onAction="#onTamanoSelected" text="2 Largo">
                <toggleGroup>
                   <ToggleGroup fx:id="tamaño" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="radioL3" layoutX="55.0" layoutY="585.0" mnemonicParsing="false" selected="true" text="3 Largo" toggleGroup="$tamaño" />
+            <RadioButton fx:id="radioL3" layoutX="55.0" layoutY="585.0" mnemonicParsing="false" onAction="#onTamanoSelected" selected="true" text="3 Largo" toggleGroup="$tamaño" />
          </children>
       </AnchorPane>
    </children>

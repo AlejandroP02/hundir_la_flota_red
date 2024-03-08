@@ -34,6 +34,8 @@ public class Controller {
     private GridPane rival;
     @FXML
     private RadioButton radioV, radioH, radioL2, radioL3;
+    boolean tres=true;
+    boolean vertical;
 
     @FXML
     private Rectangle r00, r01, r02, r03, r04,
@@ -167,40 +169,25 @@ public class Controller {
 
     @FXML
     public void onOrientacionSelected(){
-        if (radioH.isSelected()){
-            //Hacer que vertical sea falso.
-        } else{
-            // Hacer que vertical sea cierto.
-        }
+        vertical= !radioH.isSelected();
     }
 
     @FXML
     public void onTamanoSelected(){
-        if (radioL2.isSelected()){
-            //Hacer que isTres sea falso.
-        } else{
-            // Hacer que isTres sea cierto.
-        }
+        tres= !radioL2.isSelected();
     }
 
 
     @FXML
     public void colocarBarco(){
-        boolean tres=true;
-        boolean vertical=false;
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 int filaActual = i;
                 int columnaActual = j;
                 Rectangle pieza = tableroj[i][j];
-                pieza.setOnMouseClicked(e -> {
-                    pintar(tres, vertical, filaActual, columnaActual);
-                });
+                pieza.setOnMouseClicked(e -> pintar(tres, vertical, filaActual, columnaActual));
             }
         }
-    }
-    public void pruebaKevin(){
-        System.out.println("Tonto");
     }
 
 
@@ -212,7 +199,7 @@ public class Controller {
                     tableroj[i][y].setStyle("-fx-fill: #515151");
                 }
             }else{
-                for (int i = x; i > x+3; i++) {
+                for (int i = x; i < x+3; i++) {
                     tableroj[i][y].setStyle("-fx-fill: #515151");
                 }
             }
@@ -224,6 +211,29 @@ public class Controller {
                 }
             }else{
                 for (int i = y; i < y+3; i++) {
+                    tableroj[x][i].setStyle("-fx-fill: #515151");
+                }
+            }
+        }
+
+        if(!tres && vertical){
+            if(x+1>=5){
+                for (int i = x; i > x-2; i--) {
+                    tableroj[i][y].setStyle("-fx-fill: #515151");
+                }
+            }else{
+                for (int i = x; i < x+2; i++) {
+                    tableroj[i][y].setStyle("-fx-fill: #515151");
+                }
+            }
+        }
+        if(!tres && !vertical){
+            if(y+1>=5){
+                for (int i = y; i > y-2; i--) {
+                    tableroj[x][i].setStyle("-fx-fill: #515151");
+                }
+            }else{
+                for (int i = y; i < y+2; i++) {
                     tableroj[x][i].setStyle("-fx-fill: #515151");
                 }
             }
