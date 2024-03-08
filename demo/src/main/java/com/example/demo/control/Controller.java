@@ -32,6 +32,8 @@ public class Controller {
     private GridPane jugador;
     @FXML
     private GridPane rival;
+    @FXML
+    private RadioButton radioV, radioH, radioL2, radioL3;
 
     @FXML
     private Rectangle r00, r01, r02, r03, r04,
@@ -158,6 +160,26 @@ public class Controller {
                 }
             });
             thServer.start();
+        }
+    }
+
+    // Metodos con relacion a los radio button.
+
+    @FXML
+    public void onOrientacionSelected(){
+        if (radioH.isSelected()){
+            //Hacer que vertical sea falso.
+        } else{
+            // Hacer que vertical sea cierto.
+        }
+    }
+
+    @FXML
+    public void onTamanoSelected(){
+        if (radioL2.isSelected()){
+            //Hacer que isTres sea falso.
+        } else{
+            // Hacer que isTres sea cierto.
         }
     }
 

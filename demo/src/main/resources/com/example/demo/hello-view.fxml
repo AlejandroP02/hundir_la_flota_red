@@ -3,6 +3,8 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -12,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.control.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.control.Controller">
    <children>
       <Pane layoutY="27.0" prefHeight="350.0" prefWidth="600.0" style="-fx-background-color: #000000;" AnchorPane.topAnchor="27.0">
          <children>
@@ -133,5 +135,23 @@
             <Font size="18.0" />
          </font>
       </Text>
+      <AnchorPane layoutX="600.0" layoutY="25.0" prefHeight="775.0" prefWidth="199.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+         <children>
+            <Text layoutX="37.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Orientación barcos" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="39.98876953125" />
+            <Text layoutX="53.0" layoutY="534.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tamaño Barco" />
+            <RadioButton fx:id="radioV" layoutX="55.0" layoutY="275.0" mnemonicParsing="false" text="Vertical">
+               <toggleGroup>
+                  <ToggleGroup fx:id="Orientacion" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="radioH" layoutX="55.0" layoutY="305.0" mnemonicParsing="false" selected="true" text="Horizontal" toggleGroup="$Orientacion" />
+            <RadioButton fx:id="radioL2" layoutX="55.0" layoutY="555.0" mnemonicParsing="false" text="2 Largo">
+               <toggleGroup>
+                  <ToggleGroup fx:id="tamaño" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="radioL3" layoutX="55.0" layoutY="585.0" mnemonicParsing="false" selected="true" text="3 Largo" toggleGroup="$tamaño" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
