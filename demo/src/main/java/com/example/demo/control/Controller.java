@@ -1,6 +1,7 @@
 package com.example.demo.control;
 
 import com.example.demo.HelloApplication;
+import com.example.demo.model.GameState;
 import com.example.demo.net.DatagramSocketClient;
 import com.example.demo.net.DatagramSocketServer;
 import javafx.application.Platform;
@@ -75,6 +76,7 @@ public class Controller {
                 {r40, r41, r42, r43, r44}
         };
     }
+    GameState gameState = new GameState();
 
     /**
      * Cierra la aplicacion.
@@ -109,7 +111,7 @@ public class Controller {
 
             try {
                 oos = new ObjectOutputStream(os);
-                oos.writeObject(r00);
+                oos.writeObject(tableroj);
                 oos.flush();
             } catch (IOException e) {
                 throw new RuntimeException(e);
