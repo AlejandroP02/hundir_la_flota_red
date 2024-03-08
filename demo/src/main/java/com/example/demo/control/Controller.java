@@ -144,16 +144,12 @@ public class Controller {
         txtIp.setPromptText("IP");
         TextField txtPort = new TextField();
         txtPort.setPromptText("Port");
-        TextField txtNom = new TextField();
-        txtNom.setPromptText("Nom");
 
 
         gridPane.add(new Label("IP:"), 0, 0);
         gridPane.add(txtIp, 1, 0);
         gridPane.add(new Label("Port:"), 0, 1);
         gridPane.add(txtPort, 1, 1);
-        gridPane.add(new Label("Nom:"), 0, 2);
-        gridPane.add(txtNom, 1, 2);
 
         dialog.getDialogPane().setContent(gridPane);
         Platform.runLater(txtIp::requestFocus);

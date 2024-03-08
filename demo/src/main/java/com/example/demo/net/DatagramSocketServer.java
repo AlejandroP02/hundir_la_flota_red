@@ -14,7 +14,6 @@ import java.nio.ByteBuffer;
  */
 public class DatagramSocketServer {
     private DatagramSocket socket;
-    //private SecretNum ns;
     private int fi;
     private boolean acabat;
 
