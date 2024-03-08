@@ -2,7 +2,9 @@ package com.example.demo.model;
 
 import javafx.scene.shape.Rectangle;
 
-public class GameState {
+import java.io.Serializable;
+
+public class GameState implements Serializable {
     private Player player1, player2;
     private Rectangle posicion;
     private Rectangle[][] tablero;

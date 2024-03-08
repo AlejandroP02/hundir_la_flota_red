@@ -33,6 +33,7 @@ public class Controller {
 
     @FXML
     private MenuItem connect;
+    int barcos = 3;
 
     @FXML
     private Label turno;
@@ -111,7 +112,7 @@ public class Controller {
 
             try {
                 oos = new ObjectOutputStream(os);
-                oos.writeObject(tableroj);
+                oos.writeObject(gameState);
                 oos.flush();
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -223,18 +224,21 @@ public class Controller {
 
     @FXML
     public void colocarBarco(){
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                int filaActual = i;
-                int columnaActual = j;
-                Rectangle pieza = tableroj[i][j];
-                pieza.setOnMouseClicked(e -> pintar(tres, vertical, filaActual, columnaActual));
+        if(barcos>0){
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 5; j++) {
+                    int filaActual = i;
+                    int columnaActual = j;
+                    Rectangle pieza = tableroj[i][j];
+                    pieza.setOnMouseClicked(e -> pintar(tres, vertical, filaActual, columnaActual));
+                }
             }
         }
     }
 
 
     public void pintar(boolean tres, boolean vertical, int x, int y){
+        barcos--;
         //odio mi vida.
         if(tres && vertical){
             if(x+2>=5){
