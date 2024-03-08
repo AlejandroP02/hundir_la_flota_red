@@ -177,6 +177,9 @@ public class Controller {
             }
         }
     }
+    public void pruebaKevin(){
+        System.out.println("Tonto");
+    }
 
 
     public void pintar(boolean tres, boolean vertical, int x, int y){
