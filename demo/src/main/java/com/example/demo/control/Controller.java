@@ -61,6 +61,7 @@ public class Controller {
     String nombre;
     private GameState gameState=null;
     private Jugada jugada;
+    private boolean puedeAtacar = true;
 
     @FXML
     private void initialize() {
@@ -79,6 +80,7 @@ public class Controller {
                 {r40, r41, r42, r43, r44}
         };
         colocarBarco();
+        realizarAtaque();
     }
 
     /**
@@ -126,7 +128,6 @@ public class Controller {
             try {
                 oos = new ObjectOutputStream(os);
                 oos.writeObject(jugada);
-                System.out.println("xd");
                 oos.flush();
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -187,8 +188,11 @@ public class Controller {
                 jugada = new Jugada(nombre, tablero);
                 client.init(result.get().getKey(), result.get().getValue());
                 client.runClient();
+                puedeAtacar=false;
                 Thread.sleep(500);
                 textTurno.setText("Connectat, comença!");
+                Thread.sleep(500);
+                textTurno.setText("turno del otro jugador");
                 /**if(!estatJoc.getTurn().equals(nom)) {
                     timer.start();
                 }*/
@@ -222,6 +226,7 @@ public class Controller {
                         }
                     }
                     jugada = new Jugada(nombre, tablero);
+                    textTurno.setText("tu turno");
                     server.init(Integer.parseInt(result.get()));
                     server.runServer();
                 } catch (IOException e) {
@@ -251,10 +256,16 @@ public class Controller {
                 int columnaActual = j;
                 Rectangle pieza = tableror[i][j];
                 pieza.setOnMouseClicked(e -> {
-                    if(barcos>0)pintar(tres, vertical, filaActual, columnaActual);
+                    if(puedeAtacar)atacar(filaActual, columnaActual);
                 });
             }
         }
+    }
+
+    public void atacar(int x, int y){
+        puedeAtacar=false;
+        tableror[x][y].setStyle("-fx-fill: #FF9933");
+        textTurno.setText("turno del otro jugador");
     }
 
     public void colocarBarco(){
