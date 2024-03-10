@@ -9,7 +9,6 @@ public class GameState implements Serializable {
     private Rectangle posicion;
     private Rectangle[][] tablero1;
     private Rectangle[][] tablero2;
-    private String response;
     private boolean turno;
 
     public GameState() {
@@ -53,14 +52,6 @@ public class GameState implements Serializable {
 
     public void setTablero2(Rectangle[][] tablero) {
         tablero2 = tablero;
-    }
-
-    public String getResponse() {
-        return response;
-    }
-
-    public void setResponse(String response) {
-        this.response = response;
     }
 
     public boolean isTurno() {

@@ -1,6 +1,7 @@
 package com.example.demo.net;
 
 import com.example.demo.model.GameState;
+import com.example.demo.model.Jugada;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -18,15 +19,12 @@ public class DatagramSocketServer {
     private DatagramSocket socket;
     private int fi;
     private boolean acabat;
-    private GameState gameState;
+    private GameState gameState = new GameState();
 
     public GameState getGameState() {
         return gameState;
     }
 
-    public void setGameState(GameState gameState) {
-        this.gameState = gameState;
-    }
 
     //Instàciar el socket
     public void init(int port) throws SocketException {
@@ -61,7 +59,7 @@ public class DatagramSocketServer {
         ByteArrayInputStream is = new ByteArrayInputStream(data);
         try {
             ObjectInputStream ois = new ObjectInputStream(is);
-            gameState = (GameState) ois.readObject();
+            updateGameState((Jugada) ois.readObject());
             //System.out.println(jugada + "torn:" + estatJoc.getTurn());
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -81,6 +79,10 @@ public class DatagramSocketServer {
             throw new RuntimeException(e);
         }
         return os.toByteArray();
+    }
+
+    private void updateGameState(Jugada jugada){
+
     }
 
 }

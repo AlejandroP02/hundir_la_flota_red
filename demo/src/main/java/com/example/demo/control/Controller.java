@@ -1,6 +1,8 @@
 package com.example.demo.control;
 
 import com.example.demo.HelloApplication;
+import com.example.demo.model.GameState;
+import com.example.demo.model.Jugada;
 import com.example.demo.net.DatagramSocketClient;
 import com.example.demo.net.DatagramSocketServer;
 import javafx.application.Platform;
@@ -54,6 +56,8 @@ public class Controller {
     Rectangle[][] tableroj;
     Rectangle[][] tableror;
     String nombre;
+    private GameState gameState=null;
+    private Jugada jugada;
 
     @FXML
     private void initialize() {
@@ -73,7 +77,6 @@ public class Controller {
         };
         colocarBarco();
     }
-    DatagramSocketServer server =new DatagramSocketServer();
 
     /**
      * Cierra la aplicacion.
@@ -90,13 +93,11 @@ public class Controller {
             ByteArrayInputStream is = new ByteArrayInputStream(data);
             try {
                 ObjectInputStream ois = new ObjectInputStream(is);
-            } catch (IOException e) {
+                gameState = (GameState) ois.readObject();
+            } catch (IOException | ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
 
-            // lblResponse.setText(estatJoc.getResponse());
-            StringBuilder stringEstat = new StringBuilder("XD");
-            textTurno.setText(stringEstat.toString());
 
         }
 
@@ -104,11 +105,10 @@ public class Controller {
         public byte[] getRequest() {
             ByteArrayOutputStream os = new ByteArrayOutputStream();
             ObjectOutputStream oos = null;
-            //jugada = new Jugada();
 
             try {
                 oos = new ObjectOutputStream(os);
-                oos.writeObject(server.getGameState());
+                oos.writeObject(jugada);
                 oos.flush();
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -121,7 +121,6 @@ public class Controller {
             return !resp.equals("Correcte");
         }
     };
-
     @FXML
     public void menuItemConnection(ActionEvent actionEvent) {
 
@@ -161,9 +160,11 @@ public class Controller {
 
         if(result.isPresent()) {
             try {
+                nombre="player2";
                 client.init(result.get().getKey(), result.get().getValue());
                 client.runClient();
                 Thread.sleep(500);
+                jugada = new Jugada(nombre, tableror);
                 textTurno.setText("Connectat, comença!");
                 /**if(!estatJoc.getTurn().equals(nom)) {
                     timer.start();
@@ -190,11 +191,11 @@ public class Controller {
         if(result.isPresent()) {
             Thread thServer = new Thread(() -> {
                 try {
+                    DatagramSocketServer server = new DatagramSocketServer();
                     nombre = "player1";
                     server.init(Integer.parseInt(result.get()));
                     server.runServer();
-                    server.getGameState().setTablero1(tableroj);
-                    server.getGameState().setPlayer1(nombre);
+                    jugada = new Jugada(nombre, tableror);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
