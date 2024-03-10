@@ -6,7 +6,6 @@ import java.io.Serializable;
 
 public class GameState implements Serializable {
     private String player1, player2;
-    private Rectangle posicion;
     private Rectangle[][] tablero1;
     private Rectangle[][] tablero2;
     private boolean turno;
@@ -28,14 +27,6 @@ public class GameState implements Serializable {
 
     public void setPlayer2(String player2) {
         this.player2 = player2;
-    }
-
-    public Rectangle getPosicion() {
-        return posicion;
-    }
-
-    public void setPosicion(Rectangle posicion) {
-        this.posicion = posicion;
     }
 
     public Rectangle[][] getTablero1() {
