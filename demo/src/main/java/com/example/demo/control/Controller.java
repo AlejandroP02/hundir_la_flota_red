@@ -61,7 +61,7 @@ public class Controller {
     String nombre;
     private GameState gameState=null;
     private Jugada jugada;
-    private boolean puedeAtacar = true;
+    private boolean puedeAtacar;
 
     @FXML
     private void initialize() {
