@@ -1,7 +1,6 @@
 package com.example.demo.control;
 
 import com.example.demo.HelloApplication;
-import com.example.demo.model.GameState;
 import com.example.demo.net.DatagramSocketClient;
 import com.example.demo.net.DatagramSocketServer;
 import javafx.application.Platform;
@@ -54,6 +53,7 @@ public class Controller {
             j40, j41, j42, j43, j44;
     Rectangle[][] tableroj;
     Rectangle[][] tableror;
+    String nombre;
 
     @FXML
     private void initialize() {
@@ -73,7 +73,7 @@ public class Controller {
         };
         colocarBarco();
     }
-    GameState gameState = new GameState();
+    DatagramSocketServer server =new DatagramSocketServer();
 
     /**
      * Cierra la aplicacion.
@@ -108,7 +108,7 @@ public class Controller {
 
             try {
                 oos = new ObjectOutputStream(os);
-                oos.writeObject(gameState);
+                oos.writeObject(server.getGameState());
                 oos.flush();
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -188,11 +188,13 @@ public class Controller {
         dialog.setGraphic(new ImageView(HelloApplication.class.getResource("images/server.png").toString()));
         Optional<String> result = dialog.showAndWait();
         if(result.isPresent()) {
-            DatagramSocketServer server = new DatagramSocketServer();
             Thread thServer = new Thread(() -> {
                 try {
+                    nombre = "player1";
                     server.init(Integer.parseInt(result.get()));
                     server.runServer();
+                    server.getGameState().setTablero1(tableroj);
+                    server.getGameState().setPlayer1(nombre);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

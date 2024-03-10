@@ -20,6 +20,14 @@ public class DatagramSocketServer {
     private boolean acabat;
     private GameState gameState;
 
+    public GameState getGameState() {
+        return gameState;
+    }
+
+    public void setGameState(GameState gameState) {
+        this.gameState = gameState;
+    }
+
     //Instàciar el socket
     public void init(int port) throws SocketException {
         socket = new DatagramSocket(port);
