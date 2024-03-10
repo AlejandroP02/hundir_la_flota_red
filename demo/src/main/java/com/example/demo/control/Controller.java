@@ -23,6 +23,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -113,6 +114,7 @@ public class Controller {
             try {
                 ObjectInputStream ois = new ObjectInputStream(is);
                 gameState = (GameState) ois.readObject();
+                System.out.println(Arrays.deepToString(gameState.getTablero2()));
             } catch (IOException | ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
@@ -179,7 +181,7 @@ public class Controller {
 
         if(result.isPresent()) {
             try {
-                if (nombre.isBlank())nombre="player2";
+                if (nombre == null)nombre="player2";
                 for (int x = 0; x < 5; x++) {
                     for (int y = 0; y < 5; y++) {
                         tablero[x][y]= extraerParte(tableror[x][y].getFill().toString());
@@ -265,6 +267,7 @@ public class Controller {
     public void atacar(int x, int y){
         puedeAtacar=false;
         tableror[x][y].setStyle("-fx-fill: #FF9933");
+        tablero[x][y]= extraerParte(tableror[x][y].getFill().toString());
         textTurno.setText("turno del otro jugador");
     }
 
@@ -334,7 +337,7 @@ public class Controller {
 
     @FXML
     public void submit() throws IOException {
-        if(nombre.equals("player1"))
+        jugada = new Jugada(nombre, tablero);
         client.runClient();
     }
 }
