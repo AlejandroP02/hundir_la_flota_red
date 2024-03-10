@@ -125,9 +125,8 @@ public class Controller {
 
             try {
                 oos = new ObjectOutputStream(os);
-                System.out.println(jugada);
                 oos.writeObject(jugada);
-                System.out.println(oos);
+                System.out.println("xd");
                 oos.flush();
             } catch (IOException e) {
                 throw new RuntimeException(e);

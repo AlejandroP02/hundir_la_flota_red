@@ -84,6 +84,7 @@ public class DatagramSocketServer {
     }
 
     private void updateGameState(Jugada jugada){
+        System.out.println(Arrays.deepToString(jugada.getTablero()));
         if(jugada.getPlayer().equals("player1")){
             gameState.setPlayer1(jugada.getPlayer());
             gameState.nextTurn(jugada.getPlayer());

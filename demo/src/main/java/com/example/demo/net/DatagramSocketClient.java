@@ -29,43 +29,16 @@ public abstract class DatagramSocketClient {
     }
 
     public void runClient() throws IOException {
-        while (mustContinue()) {
-            byte[] sendingData = getRequestData();
-            sendDatagram(sendingData);
+        byte [] receivedData = new byte[1024];
+        byte [] sendingData;
 
-            byte[] receivedData = receiveDatagram();
-            processResponse(receivedData);
-        }
-    }
-
-    private byte[] getRequestData() {
-        return getRequest();
-    }
-
-    private void sendDatagram(byte[] data) throws IOException {
-        DatagramPacket packet = new DatagramPacket(data, data.length, serverIP, serverPort);
+        sendingData = getRequest();
+        DatagramPacket packet = new DatagramPacket(sendingData,sendingData.length,serverIP,serverPort);
         socket.send(packet);
-    }
-
-    private byte[] receiveDatagram() throws IOException {
-        byte[] receivedData = new byte[1024];
-        DatagramPacket packet = new DatagramPacket(receivedData, receivedData.length);
+        packet = new DatagramPacket(receivedData,1024);
         socket.receive(packet);
-        return packet.getData();
-    }
+        getResponse(packet.getData(), packet.getLength());
 
-    private void processResponse(byte[] data) {
-        getResponse(data, data.length);
-    }
-
-    private boolean mustContinue() {
-        return !mustStop();
-    }
-
-    private boolean mustStop() {
-        // Aquí puedes definir la lógica para determinar si el cliente debe detenerse.
-        // Por ejemplo, puedes usar una condición basada en el estado del juego o una señal de salida.
-        return false;  // En este ejemplo, el cliente nunca se detiene
     }
 
     //Resta de conversa que se li envia al server
