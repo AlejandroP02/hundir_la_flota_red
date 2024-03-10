@@ -244,6 +244,18 @@ public class Controller {
         tres= !radioL2.isSelected();
     }
 
+    public void realizarAtaque(){
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                int filaActual = i;
+                int columnaActual = j;
+                Rectangle pieza = tableror[i][j];
+                pieza.setOnMouseClicked(e -> {
+                    if(barcos>0)pintar(tres, vertical, filaActual, columnaActual);
+                });
+            }
+        }
+    }
 
     public void colocarBarco(){
         for (int i = 0; i < 5; i++) {
