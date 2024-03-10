@@ -179,7 +179,7 @@ public class Controller {
 
         if(result.isPresent()) {
             try {
-                nombre="player2";
+                if (nombre.isBlank())nombre="player2";
                 for (int x = 0; x < 5; x++) {
                     for (int y = 0; y < 5; y++) {
                         tablero[x][y]= extraerParte(tableror[x][y].getFill().toString());
@@ -188,11 +188,10 @@ public class Controller {
                 jugada = new Jugada(nombre, tablero);
                 client.init(result.get().getKey(), result.get().getValue());
                 client.runClient();
-                puedeAtacar=false;
                 Thread.sleep(500);
                 textTurno.setText("Connectat, comença!");
                 Thread.sleep(500);
-                textTurno.setText("turno del otro jugador");
+                if(nombre.equals("player1"))textTurno.setText("turno del otro jugador");
                 /**if(!estatJoc.getTurn().equals(nom)) {
                     timer.start();
                 }*/
@@ -225,6 +224,7 @@ public class Controller {
                             tablero[x][y]= extraerParte(tableror[x][y].getFill().toString());
                         }
                     }
+                    puedeAtacar=true;
                     jugada = new Jugada(nombre, tablero);
                     textTurno.setText("tu turno");
                     server.init(Integer.parseInt(result.get()));
@@ -334,6 +334,7 @@ public class Controller {
 
     @FXML
     public void submit() throws IOException {
+        if(nombre.equals("player1"))
         client.runClient();
     }
 }

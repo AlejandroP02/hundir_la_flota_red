@@ -49,5 +49,7 @@ public abstract class DatagramSocketClient {
 
     //Si se li diu adeu al server el client es desconnecta
     public abstract boolean mustContinue(byte [] data);
-
+    public void setSocket() throws SocketException {
+        socket = new DatagramSocket();
+    }
 }
