@@ -152,7 +152,8 @@
                </toggleGroup>
             </RadioButton>
             <RadioButton fx:id="radioL3" layoutX="54.0" layoutY="617.0" mnemonicParsing="false" onAction="#onTamanoSelected" selected="true" text="3 Largo" toggleGroup="$tamaño" />
-            <Button layoutX="40.0" layoutY="371.0" mnemonicParsing="false" onAction="#submit" prefHeight="33.0" prefWidth="123.0" text="Enviar jugada" textAlignment="CENTER" />
+            <Button layoutX="40.0" layoutY="300.0" mnemonicParsing="false" onAction="#submit" prefHeight="33.0" prefWidth="123.0" text="Enviar jugada" textAlignment="CENTER" />
+            <Button layoutX="40.0" layoutY="435.0" mnemonicParsing="false" onAction="#update" prefHeight="33.0" prefWidth="123.0" text="Actualizar" textAlignment="CENTER" />
          </children>
       </AnchorPane>
    </children>
