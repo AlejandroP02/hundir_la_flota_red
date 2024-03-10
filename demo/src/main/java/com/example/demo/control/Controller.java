@@ -340,4 +340,9 @@ public class Controller {
         jugada = new Jugada(nombre, tablero);
         client.runClient();
     }
+
+    @FXML
+    public void update() throws IOException {
+        client.runClient();
+    }
 }
