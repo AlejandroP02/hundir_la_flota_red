@@ -74,7 +74,7 @@
           <Menu mnemonicParsing="false" text="Tools">
             <items>
               <MenuItem fx:id="activateServer" mnemonicParsing="false" onAction="#menuItemActiveServer" text="Activate server" />
-                  <MenuItem fx:id="conectServer" mnemonicParsing="false" onAction="#menuItemConnection" onMenuValidation="#colocarBarco" text="Connect to server" />
+                  <MenuItem fx:id="conectServer" mnemonicParsing="false" onAction="#menuItemConnection" text="Connect to server" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" onAction="#onOrientacionSelected" text="Help">

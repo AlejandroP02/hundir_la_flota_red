@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import java.io.*;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.util.Pair;
 
 import java.io.ByteArrayInputStream;
@@ -25,8 +26,6 @@ import java.util.Optional;
 
 public class Controller {
 
-    @FXML
-    private MenuItem cerrar;
 
     @FXML
     private MenuItem actServer;
@@ -36,15 +35,11 @@ public class Controller {
     int barcos = 3;
 
     @FXML
-    private Label turno;
-    @FXML
-    private GridPane jugador;
-    @FXML
-    private GridPane rival;
+    private Text textTurno;
     @FXML
     private RadioButton radioV, radioH, radioL2, radioL3;
-    boolean tres=true;
-    boolean vertical;
+    private boolean tres=true;
+    private boolean vertical;
 
     @FXML
     private Rectangle r00, r01, r02, r03, r04,
@@ -76,6 +71,7 @@ public class Controller {
                 {r30, r31, r32, r33, r34},
                 {r40, r41, r42, r43, r44}
         };
+        colocarBarco();
     }
     GameState gameState = new GameState();
 
@@ -100,7 +96,7 @@ public class Controller {
 
             // lblResponse.setText(estatJoc.getResponse());
             StringBuilder stringEstat = new StringBuilder("XD");
-            turno.setText(stringEstat.toString());
+            textTurno.setText(stringEstat.toString());
 
         }
 
@@ -168,7 +164,7 @@ public class Controller {
                 client.init(result.get().getKey(), result.get().getValue());
                 client.runClient();
                 Thread.sleep(500);
-                turno.setText("Connectat, comença!");
+                textTurno.setText("Connectat, comença!");
                 /**if(!estatJoc.getTurn().equals(nom)) {
                     timer.start();
                 }*/
@@ -218,7 +214,6 @@ public class Controller {
     }
 
 
-    @FXML
     public void colocarBarco(){
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
