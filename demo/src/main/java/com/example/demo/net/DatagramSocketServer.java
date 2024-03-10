@@ -85,12 +85,10 @@ public class DatagramSocketServer {
 
     private void updateGameState(Jugada jugada){
         if(jugada.getPlayer().equals("player1")){
-            gameState.setPlayer1(jugada.getPlayer());
-            gameState.setTurno(jugada.getPlayer());
+            gameState.setPlayer1(jugada.getPlayer());;
             gameState.setTablero2(jugada.getTablero());
         }else{
             gameState.setPlayer2(jugada.getPlayer());
-            gameState.setTurno(jugada.getPlayer());
             gameState.setTablero1(jugada.getTablero());
         }
     }

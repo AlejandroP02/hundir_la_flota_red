@@ -9,7 +9,7 @@ public class GameState implements Serializable {
     private String player1, player2;
     private String[][] tablero1;
     private String[][] tablero2;
-    private String turno;
+    private String turno="player1";
 
     public GameState() {
     }

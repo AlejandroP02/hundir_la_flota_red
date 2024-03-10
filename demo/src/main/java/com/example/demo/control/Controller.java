@@ -54,8 +54,8 @@ public class Controller {
     Rectangle[][] tableroj;
     Rectangle[][] tableror;
     String[][] tablero = new String[5][5];
-    String nombre="";
-    private GameState gameState=null;
+    String nombre;
+    private GameState gameState=new GameState();
     private Jugada jugada;
 
     @FXML
@@ -74,7 +74,6 @@ public class Controller {
                 {r30, r31, r32, r33, r34},
                 {r40, r41, r42, r43, r44}
         };
-        gameState = new GameState();
         colocarBarco();
         realizarAtaque();
     }
@@ -246,11 +245,6 @@ public class Controller {
     }
 
     public void realizarAtaque(){
-        if (nombre.equals("player1")) {
-            gameState.setTurno("player2");
-        } else {
-            gameState.setTurno("player1");
-        }
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 int filaActual = i;
@@ -266,6 +260,11 @@ public class Controller {
     }
 
     public void atacar(int x, int y){
+        if (nombre.equals("player1")) {
+            gameState.setTurno("player2");
+        } else {
+            gameState.setTurno("player1");
+        }
         tableror[x][y].setStyle("-fx-fill: #ff9933");
         tablero[x][y]= extraerParte(tableror[x][y].getFill().toString());
         textTurno.setText("turno del otro jugador");
@@ -345,19 +344,24 @@ public class Controller {
     @FXML
     public void update() throws IOException {
         client.runClient();
+        if (nombre.equals("player2")) {
+            gameState.setTurno("player2");
+        } else if (nombre.equals("player1")){
+            gameState.setTurno("player1");
+        }
         gameStateTogame();
     }
 
     public void gameStateTogame(){
+        System.out.println(nombre);
         if (nombre.equals("player1"))transfomrTablej(gameState.getTablero1());
         else transfomrTablej(gameState.getTablero2());
 
-        if (nombre.equals("player1"))transfomrTabler(gameState.getTablero1());
-        else transfomrTabler(gameState.getTablero2());
+        if (nombre.equals("player1"))transfomrTabler(gameState.getTablero2());
+        else transfomrTabler(gameState.getTablero1());
     }
 
     public void transfomrTablej(String[][] tablero){
-        System.out.println("xd1");
         for (int x = 0; x < 5; x++) {
             for (int y = 0; y < 5; y++) {
                 if(extraerParte(tableroj[x][y].getFill().toString()).equals("1e90ff") && tablero[x][y].equals("ff9933")){
@@ -370,7 +374,6 @@ public class Controller {
     }
 
     public void transfomrTabler(String[][] tablero){
-        System.out.println("xd2");
         for (int x = 0; x < 5; x++) {
             for (int y = 0; y < 5; y++) {
                 if (extraerParte(tableror[x][y].getFill().toString()).equals("ff9933")){
