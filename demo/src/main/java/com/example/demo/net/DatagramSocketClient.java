@@ -16,11 +16,10 @@ public abstract class DatagramSocketClient {
     InetAddress serverIP;
     int serverPort;
     DatagramSocket socket;
-    Scanner sc;
+
     String nom;
 
     public DatagramSocketClient() {
-        sc = new Scanner(System.in);
     }
 
     public void init(String host, int port) throws SocketException, UnknownHostException {
@@ -30,16 +29,43 @@ public abstract class DatagramSocketClient {
     }
 
     public void runClient() throws IOException {
-        byte [] receivedData = new byte[1024];
-        byte [] sendingData;
+        while (mustContinue()) {
+            byte[] sendingData = getRequestData();
+            sendDatagram(sendingData);
 
-        sendingData = getRequest();
-        DatagramPacket packet = new DatagramPacket(sendingData,sendingData.length,serverIP,serverPort);
+            byte[] receivedData = receiveDatagram();
+            processResponse(receivedData);
+        }
+    }
+
+    private byte[] getRequestData() {
+        return getRequest();
+    }
+
+    private void sendDatagram(byte[] data) throws IOException {
+        DatagramPacket packet = new DatagramPacket(data, data.length, serverIP, serverPort);
         socket.send(packet);
-        packet = new DatagramPacket(receivedData,1024);
-        socket.receive(packet);
-        getResponse(packet.getData(), packet.getLength());
+    }
 
+    private byte[] receiveDatagram() throws IOException {
+        byte[] receivedData = new byte[1024];
+        DatagramPacket packet = new DatagramPacket(receivedData, receivedData.length);
+        socket.receive(packet);
+        return packet.getData();
+    }
+
+    private void processResponse(byte[] data) {
+        getResponse(data, data.length);
+    }
+
+    private boolean mustContinue() {
+        return !mustStop();
+    }
+
+    private boolean mustStop() {
+        // Aquí puedes definir la lógica para determinar si el cliente debe detenerse.
+        // Por ejemplo, puedes usar una condición basada en el estado del juego o una señal de salida.
+        return false;  // En este ejemplo, el cliente nunca se detiene
     }
 
     //Resta de conversa que se li envia al server

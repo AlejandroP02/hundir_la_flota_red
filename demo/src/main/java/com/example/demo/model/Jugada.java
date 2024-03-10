@@ -5,6 +5,7 @@ import javafx.scene.shape.Rectangle;
 import java.io.Serializable;
 
 public class Jugada implements Serializable {
+
     private String player;
     private String[][] tablero;
 

@@ -5,6 +5,7 @@ import javafx.scene.shape.Rectangle;
 import java.io.Serializable;
 
 public class GameState implements Serializable {
+    public static final long serialVersionUID = 1L;
     private String player1, player2;
     private String[][] tablero1;
     private String[][] tablero2;

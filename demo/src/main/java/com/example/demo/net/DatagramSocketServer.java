@@ -9,6 +9,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 import java.io.*;
+import java.util.Arrays;
 
 /**
  * Created by jordi on 26/02/17.
@@ -59,8 +60,8 @@ public class DatagramSocketServer {
         ByteArrayInputStream is = new ByteArrayInputStream(data);
         try {
             ObjectInputStream ois = new ObjectInputStream(is);
-            System.out.println((Jugada) ois.readObject());
-            updateGameState((Jugada) ois.readObject());
+            Jugada jugada = (Jugada) ois.readObject();
+            updateGameState(jugada);
             //System.out.println(jugada + "torn:" + estatJoc.getTurn());
         } catch (IOException e) {
             throw new RuntimeException(e);
