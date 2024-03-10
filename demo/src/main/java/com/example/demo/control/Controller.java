@@ -331,4 +331,9 @@ public class Controller {
             }
         }
     }
+
+    @FXML
+    public void submit() throws IOException {
+        client.runClient();
+    }
 }
