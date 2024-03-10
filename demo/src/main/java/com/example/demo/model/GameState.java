@@ -9,7 +9,7 @@ public class GameState implements Serializable {
     private String player1, player2;
     private String[][] tablero1;
     private String[][] tablero2;
-    private boolean turno;
+    private String turno;
 
     public GameState() {
     }
@@ -46,20 +46,12 @@ public class GameState implements Serializable {
         tablero2 = tablero;
     }
 
-    public boolean isTurno() {
+    public String getTurno() {
         return turno;
     }
 
-    public void setTurno(boolean turno) {
+    public void setTurno(String turno) {
         this.turno = turno;
     }
-    public boolean nextTurn(String player){
-        // Metodo a editar para realizar los turnos.
-        if (player.equals(player1)){
-            turno=true;
-        }else {
-            turno=false;
-        }
-        return turno;
-    }
+
 }

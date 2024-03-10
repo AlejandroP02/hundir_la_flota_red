@@ -31,11 +31,6 @@ import java.util.regex.Pattern;
 public class Controller {
 
 
-    @FXML
-    private MenuItem actServer;
-
-    @FXML
-    private MenuItem connect;
     int barcos = 3;
 
     @FXML
@@ -59,10 +54,9 @@ public class Controller {
     Rectangle[][] tableroj;
     Rectangle[][] tableror;
     String[][] tablero = new String[5][5];
-    String nombre;
+    String nombre="";
     private GameState gameState=null;
     private Jugada jugada;
-    private boolean puedeAtacar;
 
     @FXML
     private void initialize() {
@@ -80,6 +74,7 @@ public class Controller {
                 {r30, r31, r32, r33, r34},
                 {r40, r41, r42, r43, r44}
         };
+        gameState = new GameState();
         colocarBarco();
         realizarAtaque();
     }
@@ -193,7 +188,7 @@ public class Controller {
                 Thread.sleep(500);
                 textTurno.setText("Connectat, comença!");
                 Thread.sleep(500);
-                if(nombre.equals("player1"))textTurno.setText("turno del otro jugador");
+                if(!nombre.equals("player1"))textTurno.setText("turno del otro jugador");
                 /**if(!estatJoc.getTurn().equals(nom)) {
                     timer.start();
                 }*/
@@ -226,7 +221,6 @@ public class Controller {
                             tablero[x][y]= extraerParte(tableror[x][y].getFill().toString());
                         }
                     }
-                    puedeAtacar=true;
                     jugada = new Jugada(nombre, tablero);
                     textTurno.setText("tu turno");
                     server.init(Integer.parseInt(result.get()));
@@ -252,21 +246,27 @@ public class Controller {
     }
 
     public void realizarAtaque(){
+        if (nombre.equals("player1")) {
+            gameState.setTurno("player2");
+        } else {
+            gameState.setTurno("player1");
+        }
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 int filaActual = i;
                 int columnaActual = j;
                 Rectangle pieza = tableror[i][j];
                 pieza.setOnMouseClicked(e -> {
-                    if(puedeAtacar)atacar(filaActual, columnaActual);
+                    if(nombre.equals(gameState.getTurno())){
+                        atacar(filaActual, columnaActual);
+                    }
                 });
             }
         }
     }
 
     public void atacar(int x, int y){
-        puedeAtacar=false;
-        tableror[x][y].setStyle("-fx-fill: #FF9933");
+        tableror[x][y].setStyle("-fx-fill: #ff9933");
         tablero[x][y]= extraerParte(tableror[x][y].getFill().toString());
         textTurno.setText("turno del otro jugador");
     }
@@ -339,10 +339,48 @@ public class Controller {
     public void submit() throws IOException {
         jugada = new Jugada(nombre, tablero);
         client.runClient();
+        gameStateTogame();
     }
 
     @FXML
     public void update() throws IOException {
         client.runClient();
+        gameStateTogame();
+    }
+
+    public void gameStateTogame(){
+        if (nombre.equals("player1"))transfomrTablej(gameState.getTablero1());
+        else transfomrTablej(gameState.getTablero2());
+
+        if (nombre.equals("player1"))transfomrTabler(gameState.getTablero1());
+        else transfomrTabler(gameState.getTablero2());
+    }
+
+    public void transfomrTablej(String[][] tablero){
+        System.out.println("xd1");
+        for (int x = 0; x < 5; x++) {
+            for (int y = 0; y < 5; y++) {
+                if(extraerParte(tableroj[x][y].getFill().toString()).equals("1e90ff") && tablero[x][y].equals("ff9933")){
+                    tableroj[x][y].setStyle("-fx-fill: #ff9933");
+                }else if(extraerParte(tableroj[x][y].getFill().toString()).equals("515151") && tablero[x][y].equals("ff9933")){
+                    tableroj[x][y].setStyle("-fx-fill: #ff0000");
+                }
+            }
+        }
+    }
+
+    public void transfomrTabler(String[][] tablero){
+        System.out.println("xd2");
+        for (int x = 0; x < 5; x++) {
+            for (int y = 0; y < 5; y++) {
+                if (extraerParte(tableror[x][y].getFill().toString()).equals("ff9933")){
+                    if(extraerParte(tableroj[x][y].getFill().toString()).equals("1e90ff") && tablero[x][y].equals("ff9933")){
+                        tableror[x][y].setStyle("-fx-fill: #ff9933");
+                    }else if(extraerParte(tableroj[x][y].getFill().toString()).equals("515151") && tablero[x][y].equals("ff9933")){
+                        tableror[x][y].setStyle("-fx-fill: #ff0000");
+                    }
+                }
+            }
+        }
     }
 }
