@@ -6,9 +6,9 @@ import java.io.Serializable;
 
 public class Jugada implements Serializable {
     private String player;
-    private Rectangle[][] tablero;
+    private String[][] tablero;
 
-    public Jugada(String player, Rectangle[][] tablero) {
+    public Jugada(String player, String[][] tablero) {
         this.player = player;
         this.tablero = tablero;
     }
@@ -17,7 +17,7 @@ public class Jugada implements Serializable {
         return player;
     }
 
-    public Rectangle[][] getTablero() {
+    public String[][] getTablero() {
         return tablero;
     }
 }

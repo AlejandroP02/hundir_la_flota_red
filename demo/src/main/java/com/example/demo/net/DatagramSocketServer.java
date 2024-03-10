@@ -59,6 +59,7 @@ public class DatagramSocketServer {
         ByteArrayInputStream is = new ByteArrayInputStream(data);
         try {
             ObjectInputStream ois = new ObjectInputStream(is);
+            System.out.println((Jugada) ois.readObject());
             updateGameState((Jugada) ois.readObject());
             //System.out.println(jugada + "torn:" + estatJoc.getTurn());
         } catch (IOException e) {

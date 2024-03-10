@@ -24,6 +24,8 @@ import java.io.ObjectOutputStream;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Controller {
 
@@ -55,6 +57,7 @@ public class Controller {
             j40, j41, j42, j43, j44;
     Rectangle[][] tableroj;
     Rectangle[][] tableror;
+    String[][] tablero = new String[5][5];
     String nombre;
     private GameState gameState=null;
     private Jugada jugada;
@@ -85,6 +88,20 @@ public class Controller {
     private void salir() {
         Platform.exit();
     }
+    private static String extraerParte(String texto) {
+        // Definir el patrón regex para encontrar la parte deseada
+        Pattern patron = Pattern.compile("0x([a-fA-F0-9]+)ff");
+
+        // Crear un objeto Matcher para buscar el patrón en el texto
+        Matcher matcher = patron.matcher(texto);
+
+        // Verificar si se encontró el patrón y obtener la parte deseada
+        if (matcher.find()) {
+            return matcher.group(1); // El grupo 1 contiene la parte deseada
+        } else {
+            return "No se encontró ninguna coincidencia";
+        }
+    }
 
     DatagramSocketClient client = new DatagramSocketClient() {
         String resp="";
@@ -108,7 +125,9 @@ public class Controller {
 
             try {
                 oos = new ObjectOutputStream(os);
+                System.out.println(jugada);
                 oos.writeObject(jugada);
+                System.out.println(oos);
                 oos.flush();
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -161,10 +180,15 @@ public class Controller {
         if(result.isPresent()) {
             try {
                 nombre="player2";
+                for (int x = 0; x < 5; x++) {
+                    for (int y = 0; y < 5; y++) {
+                        tablero[x][y]= extraerParte(tableror[x][y].getFill().toString());
+                    }
+                }
+                jugada = new Jugada(nombre, tablero);
                 client.init(result.get().getKey(), result.get().getValue());
                 client.runClient();
                 Thread.sleep(500);
-                jugada = new Jugada(nombre, tableror);
                 textTurno.setText("Connectat, comença!");
                 /**if(!estatJoc.getTurn().equals(nom)) {
                     timer.start();
@@ -193,9 +217,14 @@ public class Controller {
                 try {
                     DatagramSocketServer server = new DatagramSocketServer();
                     nombre = "player1";
+                    for (int x = 0; x < 5; x++) {
+                        for (int y = 0; y < 5; y++) {
+                            tablero[x][y]= extraerParte(tableror[x][y].getFill().toString());
+                        }
+                    }
+                    jugada = new Jugada(nombre, tablero);
                     server.init(Integer.parseInt(result.get()));
                     server.runServer();
-                    jugada = new Jugada(nombre, tableror);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

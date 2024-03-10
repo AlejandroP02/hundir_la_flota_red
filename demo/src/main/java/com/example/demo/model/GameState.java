@@ -6,8 +6,8 @@ import java.io.Serializable;
 
 public class GameState implements Serializable {
     private String player1, player2;
-    private Rectangle[][] tablero1;
-    private Rectangle[][] tablero2;
+    private String[][] tablero1;
+    private String[][] tablero2;
     private boolean turno;
 
     public GameState() {
@@ -29,19 +29,19 @@ public class GameState implements Serializable {
         this.player2 = player2;
     }
 
-    public Rectangle[][] getTablero1() {
+    public String[][] getTablero1() {
         return tablero1;
     }
 
-    public void setTablero1(Rectangle[][] tablero) {
+    public void setTablero1(String[][] tablero) {
         tablero1 = tablero;
     }
 
-    public Rectangle[][] getTablero2() {
+    public String[][] getTablero2() {
         return tablero2;
     }
 
-    public void setTablero2(Rectangle[][] tablero) {
+    public void setTablero2(String[][] tablero) {
         tablero2 = tablero;
     }
 
