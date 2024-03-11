@@ -38,7 +38,6 @@ public abstract class DatagramSocketClient {
         packet = new DatagramPacket(receivedData,1024);
         socket.receive(packet);
         getResponse(packet.getData(), packet.getLength());
-
     }
 
     //Resta de conversa que se li envia al server

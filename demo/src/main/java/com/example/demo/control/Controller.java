@@ -337,9 +337,30 @@ public class Controller {
     @FXML
     public void submit() throws IOException {
         jugada = new Jugada(nombre, tablero);
+        /*
         client.runClient();
         gameStateTogame();
-    }
+        */
+            try {
+                // Actualizamos el tablero en la instancia de Jugada
+                updateJugadaTablero(tablero);
+
+                // Enviamos la jugada al servidor
+                client.init("localhost", 5555); // Ajusta la dirección y el puerto del servidor según sea necesario
+                client.runClient();
+                gameStateTogame();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        private void updateJugadaTablero(String[][] tablero) {
+            for (int x = 0; x < 5; x++) {
+                for (int y = 0; y < 5; y++) {
+                    tablero[x][y] = extraerParte(tableror[x][y].getFill().toString());
+                }
+            }
+        }
 
     @FXML
     public void update() throws IOException {
