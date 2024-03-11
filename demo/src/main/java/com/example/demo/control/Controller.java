@@ -346,7 +346,6 @@ public class Controller {
                 updateJugadaTablero(tablero);
 
                 // Enviamos la jugada al servidor
-                client.init("localhost", 5555); // Ajusta la dirección y el puerto del servidor según sea necesario
                 client.runClient();
                 gameStateTogame();
 
@@ -378,7 +377,7 @@ public class Controller {
         if (nombre.equals("player1"))transfomrTablej(gameState.getTablero1());
         else transfomrTablej(gameState.getTablero2());
 
-        if (nombre.equals("player1"))transfomrTabler(gameState.getTablero2());
+        if (nombre.equals("player2"))transfomrTabler(gameState.getTablero2());
         else transfomrTabler(gameState.getTablero1());
     }
 
