@@ -11,6 +11,9 @@ public class GameState implements Serializable {
     private String[][] tablero2;
     private String turno="player1";
 
+    private String[][] tableroj1;
+    private String[][] tableroj2;
+
     public GameState() {
     }
 

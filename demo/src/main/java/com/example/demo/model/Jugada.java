@@ -8,6 +8,7 @@ public class Jugada implements Serializable {
 
     private String player;
     private String[][] tablero;
+    private String[][] tableroDelJugador;
 
     public Jugada(String player, String[][] tablero) {
         this.player = player;
@@ -20,5 +21,9 @@ public class Jugada implements Serializable {
 
     public String[][] getTablero() {
         return tablero;
+    }
+
+    public String[][] getTableroDelJugador() {
+        return tableroDelJugador;
     }
 }
