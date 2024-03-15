@@ -87,9 +87,11 @@ public class DatagramSocketServer {
         if(jugada.getPlayer().equals("player1")){
             gameState.setPlayer1(jugada.getPlayer());;
             gameState.setTablero2(jugada.getTablero());
+            gameState.setTableroj1(jugada.getTableroDelJugador());
         }else{
             gameState.setPlayer2(jugada.getPlayer());
             gameState.setTablero1(jugada.getTablero());
+            gameState.setTableroj2(jugada.getTableroDelJugador());
         }
     }
 
