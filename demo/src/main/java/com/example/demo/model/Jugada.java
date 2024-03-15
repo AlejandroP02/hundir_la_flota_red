@@ -10,9 +10,10 @@ public class Jugada implements Serializable {
     private String[][] tablero;
     private String[][] tableroDelJugador;
 
-    public Jugada(String player, String[][] tablero) {
+    public Jugada(String player, String[][] tablero, String[][] tableroDelJugador) {
         this.player = player;
         this.tablero = tablero;
+        this.tableroDelJugador = tableroDelJugador;
     }
 
     public String getPlayer() {

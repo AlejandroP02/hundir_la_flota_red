@@ -54,6 +54,7 @@ public class Controller {
     Rectangle[][] tableroj;
     Rectangle[][] tableror;
     String[][] tablero = new String[5][5];
+    String[][] tablero2 = new String[5][5];
     String nombre;
     private GameState gameState=new GameState();
     private Jugada jugada;
@@ -110,6 +111,7 @@ public class Controller {
                 gameState = (GameState) ois.readObject();
                 System.out.println(Arrays.deepToString(gameState.getTablero2()));
             } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
                 throw new RuntimeException(e);
             }
 
@@ -179,9 +181,10 @@ public class Controller {
                 for (int x = 0; x < 5; x++) {
                     for (int y = 0; y < 5; y++) {
                         tablero[x][y]= extraerParte(tableror[x][y].getFill().toString());
+                        tablero2[x][y]= extraerParte(tableroj[x][y].getFill().toString());
                     }
                 }
-                jugada = new Jugada(nombre, tablero);
+                jugada = new Jugada(nombre, tablero, tablero2);
                 client.init(result.get().getKey(), result.get().getValue());
                 client.runClient();
                 Thread.sleep(500);
@@ -218,9 +221,10 @@ public class Controller {
                     for (int x = 0; x < 5; x++) {
                         for (int y = 0; y < 5; y++) {
                             tablero[x][y]= extraerParte(tableror[x][y].getFill().toString());
+                            tablero2[x][y]= extraerParte(tableroj[x][y].getFill().toString());
                         }
                     }
-                    jugada = new Jugada(nombre, tablero);
+                    jugada = new Jugada(nombre, tablero, tablero2);
                     textTurno.setText("tu turno");
                     server.init(Integer.parseInt(result.get()));
                     server.runServer();
@@ -336,14 +340,20 @@ public class Controller {
 
     @FXML
     public void submit() throws IOException {
-        jugada = new Jugada(nombre, tablero);
+        for (int x = 0; x < 5; x++) {
+            for (int y = 0; y < 5; y++) {
+                tablero[x][y]= extraerParte(tableror[x][y].getFill().toString());
+                tablero2[x][y]= extraerParte(tableroj[x][y].getFill().toString());
+            }
+        }
+        updateJugadaTablero(tablero);
+        jugada = new Jugada(nombre, tablero, tablero2);
         /*
         client.runClient();
         gameStateTogame();
         */
             try {
                 // Actualizamos el tablero en la instancia de Jugada
-                updateJugadaTablero(tablero);
 
                 // Enviamos la jugada al servidor
                 client.runClient();
@@ -377,8 +387,8 @@ public class Controller {
         if (nombre.equals("player1"))transfomrTablej(gameState.getTablero1());
         else transfomrTablej(gameState.getTablero2());
 
-        if (nombre.equals("player2"))transfomrTabler(gameState.getTablero2());
-        else transfomrTabler(gameState.getTablero1());
+        if (nombre.equals("player2"))transfomrTabler();
+        else transfomrTabler();
     }
 
     public void transfomrTablej(String[][] tablero){
@@ -393,13 +403,13 @@ public class Controller {
         }
     }
 
-    public void transfomrTabler(String[][] tablero){
+    public void transfomrTabler(){
         for (int x = 0; x < 5; x++) {
             for (int y = 0; y < 5; y++) {
                 if (extraerParte(tableror[x][y].getFill().toString()).equals("ff9933")){
-                    if(extraerParte(tableroj[x][y].getFill().toString()).equals("1e90ff") && tablero[x][y].equals("ff9933")){
+                    if((gameState.getTableroj1()[x][y].equals("1e90ff") && nombre.equals("player2")) || (gameState.getTableroj2()[x][y].equals("1e90ff") && nombre.equals("player1"))){
                         tableror[x][y].setStyle("-fx-fill: #ff9933");
-                    }else if(extraerParte(tableroj[x][y].getFill().toString()).equals("515151") && tablero[x][y].equals("ff9933")){
+                    }else if((gameState.getTableroj1()[x][y].equals("515151") && nombre.equals("player2")) || (gameState.getTableroj2()[x][y].equals("515151") && nombre.equals("player1"))){
                         tableror[x][y].setStyle("-fx-fill: #ff0000");
                     }
                 }

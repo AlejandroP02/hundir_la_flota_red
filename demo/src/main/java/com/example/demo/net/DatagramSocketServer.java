@@ -38,13 +38,13 @@ public class DatagramSocketServer {
     }
 
     public void runServer() throws IOException {
-        byte [] receivingData = new byte[1024];
+        byte [] receivingData = new byte[2048];
         byte [] sendingData;
         InetAddress clientIP;
         int clientPort;
 
         while(!acabat) {
-            DatagramPacket packet = new DatagramPacket(receivingData,1024);
+            DatagramPacket packet = new DatagramPacket(receivingData,2048);
             socket.receive(packet);
             sendingData = processData(packet.getData(),packet.getLength());
             //Llegim el port i l'adreça del client per on se li ha d'enviar la resposta
@@ -87,9 +87,11 @@ public class DatagramSocketServer {
         if(jugada.getPlayer().equals("player1")){
             gameState.setPlayer1(jugada.getPlayer());;
             gameState.setTablero2(jugada.getTablero());
+            gameState.setTableroj1(jugada.getTableroDelJugador());
         }else{
             gameState.setPlayer2(jugada.getPlayer());
             gameState.setTablero1(jugada.getTablero());
+            gameState.setTableroj2(jugada.getTableroDelJugador());
         }
     }
 
