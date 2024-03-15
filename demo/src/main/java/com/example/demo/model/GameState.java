@@ -56,5 +56,20 @@ public class GameState implements Serializable {
     public void setTurno(String turno) {
         this.turno = turno;
     }
+    public String[][] getTableroj1() {
+        return tableroj1;
+    }
+
+    public void setTableroj1(String[][] tableroj1) {
+        this.tableroj1 = tableroj1;
+    }
+
+    public String[][] getTableroj2() {
+        return tableroj2;
+    }
+
+    public void setTableroj2(String[][] tableroj2) {
+        this.tableroj2 = tableroj2;
+    }
 
 }
