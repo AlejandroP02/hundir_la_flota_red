@@ -29,13 +29,13 @@ public abstract class DatagramSocketClient {
     }
 
     public void runClient() throws IOException {
-        byte [] receivedData = new byte[1024];
+        byte [] receivedData = new byte[2048];
         byte [] sendingData;
 
         sendingData = getRequest();
         DatagramPacket packet = new DatagramPacket(sendingData,sendingData.length,serverIP,serverPort);
         socket.send(packet);
-        packet = new DatagramPacket(receivedData,1024);
+        packet = new DatagramPacket(receivedData,2048);
         socket.receive(packet);
         getResponse(packet.getData(), packet.getLength());
     }

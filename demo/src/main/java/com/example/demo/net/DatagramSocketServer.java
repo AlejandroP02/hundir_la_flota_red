@@ -38,13 +38,13 @@ public class DatagramSocketServer {
     }
 
     public void runServer() throws IOException {
-        byte [] receivingData = new byte[1024];
+        byte [] receivingData = new byte[2048];
         byte [] sendingData;
         InetAddress clientIP;
         int clientPort;
 
         while(!acabat) {
-            DatagramPacket packet = new DatagramPacket(receivingData,1024);
+            DatagramPacket packet = new DatagramPacket(receivingData,2048);
             socket.receive(packet);
             sendingData = processData(packet.getData(),packet.getLength());
             //Llegim el port i l'adreça del client per on se li ha d'enviar la resposta
